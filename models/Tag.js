@@ -1,4 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
+
+const { Model, INTEGER, STRING } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 

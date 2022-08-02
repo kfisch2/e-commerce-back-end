@@ -1,5 +1,5 @@
 // import important parts of sequelize library
-const { INTEGER } = require('sequelize');
+const { INTEGER, STRING } = require('sequelize');
 const { DECIMAL } = require('sequelize');
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
