@@ -6,7 +6,6 @@ const { Category, Product } = require("../../models");
 router.get("/", (req, res) => {
   // find all categories
   Category.findAll({
-    attributes: ["id", "category_name"],
     include: [
       {
         model: Product,
@@ -15,12 +14,7 @@ router.get("/", (req, res) => {
     ],
   })
     .then((dbCategoryData) => res.json(dbCategoryData))
-    .catch((err) => {
-      if (err) {
-        console.log(err);
-        res.status(500).json(err);
-      }
-    });
+    .catch((err) => res.status(500).json(err));
 });
 
 // find one category by its `id` value
@@ -38,12 +32,7 @@ router.get("/:id", (req, res) => {
     ],
   })
     .then((dbCategoryData) => res.json(dbCategoryData))
-    .catch((err) => {
-      if (err) {
-        console.log(err);
-        res.json(err);
-      }
-    });
+    .catch((err) => res.json(err));
 });
 
 router.post("/", (req, res) => {
@@ -52,10 +41,7 @@ router.post("/", (req, res) => {
     category_name: req.body.category_name,
   })
     .then((dbCategoryData) => res.json(dbCategoryData))
-    .catch((err) => {
-      console.log(err);
-      res.json(err);
-    });
+    .catch((err) => res.json(err));
 });
 
 router.put("/:id", (req, res) => {
@@ -74,10 +60,7 @@ router.put("/:id", (req, res) => {
       }
       res.json(dbCategoryData);
     })
-    .catch((err) => {
-      console.log(err);
-      res.json(err);
-    });
+    .catch((err) => res.json(err));
 });
 
 router.delete("/:id", (req, res) => {
@@ -96,10 +79,7 @@ router.delete("/:id", (req, res) => {
       }
       res.json("Category successfully deleted");
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });
+    .catch((err) => res.status(400).json(err));
 });
 
 module.exports = router;
