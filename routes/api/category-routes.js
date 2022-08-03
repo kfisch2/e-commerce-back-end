@@ -1,15 +1,15 @@
-const router = require("express").Router();
-const { Category, Product } = require("../../models");
+const router = require('express').Router();
+const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   // find all categories
   Category.findAll({
     include: [
       {
         model: Product,
-        attributes: ["product_name"],
+        attributes: ['product_name'],
       },
     ],
   })
@@ -18,16 +18,16 @@ router.get("/", (req, res) => {
 });
 
 // find one category by its `id` value
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   Category.findOne({
-    attributes: ["id", "category_name"],
+    attributes: ['id', 'category_name'],
     where: {
       id: req.params.id,
     },
     include: [
       {
         model: Product,
-        attributes: ["product_name"],
+        attributes: ['product_name'],
       },
     ],
   })
@@ -35,7 +35,7 @@ router.get("/:id", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   // create a new category
   Category.create({
     category_name: req.body.category_name,
@@ -44,7 +44,7 @@ router.post("/", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.put("/:id", (req, res) => {
+router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update(req.body, {
     where: {
@@ -55,7 +55,7 @@ router.put("/:id", (req, res) => {
       if (!dbCategoryData) {
         res
           .status(404)
-          .json({ message: "Category with that id does not exist" });
+          .json({ message: 'Category with that id does not exist' });
         return;
       }
       res.json(dbCategoryData);
@@ -63,7 +63,7 @@ router.put("/:id", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.delete("/:id", (req, res) => {
+router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
@@ -74,10 +74,10 @@ router.delete("/:id", (req, res) => {
       if (!dbCategoryData) {
         res
           .status(404)
-          .json({ message: "Category with that id does not exist" });
+          .json({ message: 'Category with that id does not exist' });
         return;
       }
-      res.json("Category successfully deleted");
+      res.json('Category successfully deleted');
     })
     .catch((err) => res.status(400).json(err));
 });

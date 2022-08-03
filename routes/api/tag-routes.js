@@ -1,17 +1,17 @@
-const router = require("express").Router();
-const { Tag, Product, ProductTag } = require("../../models");
+const router = require('express').Router();
+const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   Tag.findAll({
-    attributes: ["id", "tag_name"],
+    attributes: ['id', 'tag_name'],
     include: [
       {
         model: Product,
-        attributes: ["product_name", "stock", "price"],
+        attributes: ['product_name', 'stock', 'price'],
       },
     ],
   })
@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   Tag.findOne({
@@ -34,13 +34,13 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Product,
-        attributes: ["product_name", "stock", "price"],
+        attributes: ['product_name', 'stock', 'price'],
       },
     ],
   })
     .then((dbTagData) => {
       if (!dbTagData) {
-        res.status(404).json({ message: "No product with that id found" });
+        res.status(404).json({ message: 'No product with that id found' });
         return;
       }
       res.json(dbTagData);
@@ -51,7 +51,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post('/', (req, res) => {
   // create a new tag
   Tag.create(req.body, {
     tag_name: req.body.tag_name,
@@ -63,7 +63,7 @@ router.post("/", (req, res) => {
     });
 });
 
-router.put("/:id", (req, res) => {
+router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
   Tag.update(req.body, {
     where: {
@@ -72,7 +72,7 @@ router.put("/:id", (req, res) => {
   })
     .then((dbTagData) => {
       if (!dbTagData) {
-        res.status(404).json({ message: "No tag with that id exists" });
+        res.status(404).json({ message: 'No tag with that id exists' });
         return;
       }
       res.json(dbTagData);
@@ -83,7 +83,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
     where: {
@@ -92,10 +92,10 @@ router.delete("/:id", (req, res) => {
   })
     .then((dbTagData) => {
       if (!dbTagData) {
-        res.status(404).json({ message: "Tag with that id does not exist" });
+        res.status(404).json({ message: 'Tag with that id does not exist' });
         return;
       }
-      res.json({ message: "successfully deleted" });
+      res.json({ message: 'successfully deleted' });
     })
     .catch((err) => {
       console.log(err);

@@ -1,4 +1,3 @@
-
 const { Model, INTEGER, STRING } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
@@ -12,11 +11,11 @@ Tag.init(
       type: INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     tag_name: {
-      type: STRING
-    }
+      type: STRING,
+    },
   },
   {
     sequelize,
