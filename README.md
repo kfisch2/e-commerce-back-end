@@ -27,6 +27,9 @@
 
   ## Tests
   <a href='https://drive.google.com/file/d/1kM6hBCy3_BFS7DRcrwFeuieUfRptL8tC/view?usp=sharing' target='_blank'>Here</a> is a demonstration of how you may test routes with sample data.
+  
+  ![ezgif-2-2740809821](https://user-images.githubusercontent.com/102554319/182933707-e29008fa-c077-4aa3-90fb-553a08bf0e81.gif)
+
 
   ## Questions
   If you have questions, email me: <kmlindsey24@gmail.com>
