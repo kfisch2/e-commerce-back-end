@@ -77,7 +77,7 @@ router.delete('/:id', (req, res) => {
           .json({ message: 'Category with that id does not exist' });
         return;
       }
-      res.json('Category successfully deleted');
+      res.json(dbCategoryData);
     })
     .catch((err) => res.status(400).json(err));
 });
