@@ -26,13 +26,7 @@
   Fork this repository to add changes/modifications.
 
   ## Tests
-  Here is a demonstration of how you may test routes with sample data.
-  
-  
-
-https://user-images.githubusercontent.com/102554319/182932622-7f9bcff5-ec7c-49fe-a647-8ec137398c93.mp4
-
-
+  <a href='https://drive.google.com/file/d/1kM6hBCy3_BFS7DRcrwFeuieUfRptL8tC/view?usp=sharing' target='_blank'>Here</a> is a demonstration of how you may test routes with sample data.
 
   ## Questions
   If you have questions, email me: <kmlindsey24@gmail.com>
